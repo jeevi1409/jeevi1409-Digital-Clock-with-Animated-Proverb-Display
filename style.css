@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #1c1c1c, #444444);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.clock-container {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 30px 50px;
+  text-align: center;
+  position: relative;
+  width: 350px; /* Adjusted to fit the content better */
+}
+
+.time {
+  font-size: 4.5rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #00ffd5;
+  text-shadow: 0px 2px 5px rgba(0, 255, 213, 0.5), 0px 4px 10px rgba(0, 255, 213, 0.2);
+}
+
+.time span {
+  display: inline-block;
+  animation: fade 1s ease infinite;
+}
+
+.date {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #cccccc;
+  margin-top: 15px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+}
+
+.hours {
+  animation-delay: 0s;
+}
+
+.minutes {
+  animation-delay: 0.2s;
+}
+
+.seconds {
+  animation-delay: 0.4s;
+}
+
+.clock-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: radial-gradient(circle, rgba(0, 255, 213, 0.1), transparent);
+  border-radius: 15px;
+  animation: pulse 3s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* Proverb styling with additional animation effects */
+.proverb {
+  margin-top: 20px; /* Space between time and proverb */
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #ffcc00;
+  font-style: italic;
+  text-shadow: 0px 2px 4px rgba(255, 204, 0, 0.5);
+  max-width: 80%; /* Limit the width */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* Center the proverb */
+  animation: fade-in-slide 3s ease, scale-up 1s 2s ease; /* Combining animations */
+}
+
+@keyframes fade-in-slide {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Starts from below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Ends in normal position */
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
